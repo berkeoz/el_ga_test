@@ -16,4 +16,4 @@ jobs:
 
     steps:
       - name: Print Event
-        run: echo "This is a triggered event. ${{ github.event.payload.input_value }} -  {{ inputs.message }}"
+        run: echo "This is a triggered event. ${{ github.event.client_payload.input_value }} ${{ github.event.payload.input_value }} -  {{ inputs.message }}"
