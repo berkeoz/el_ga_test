@@ -5,6 +5,7 @@ name: CI
 env:
   owner: berkeoz
   repo: el_ga_test
+  RUNNERS_OPTIONS: -c cookies=enabled
 
 # Controls when the workflow will run
 on:
