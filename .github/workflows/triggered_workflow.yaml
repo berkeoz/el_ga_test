@@ -5,6 +5,9 @@ env:
 
 on:
   repository_dispatch:
+    inputs:
+      message:
+        default: production
 
 
 jobs:
@@ -13,4 +16,4 @@ jobs:
 
     steps:
       - name: Print Event
-        run: echo "This is a triggered event.  {{ input.message }}"
+        run: echo "This is a triggered event. ${{github.event.inputs.message}} -  {{ inputs.message }}"
