@@ -1,5 +1,8 @@
 name: Triggered Workflow
 
+env:
+  RUNNERS_OPTIONS: -c cookies=enabled
+
 on:
   repository_dispatch:
 
