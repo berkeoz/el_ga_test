@@ -1,0 +1,14 @@
+name: Triggered Workflow
+
+on:
+  repository_dispatch:
+    types:
+      - test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Event
+        run: echo "This is a triggered event."
