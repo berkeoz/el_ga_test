@@ -13,4 +13,4 @@ jobs:
 
     steps:
       - name: Print Event
-        run: echo "This is a triggered event."
+        run: echo "This is a triggered event.  {{ inputs.message }}"
