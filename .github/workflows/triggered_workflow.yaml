@@ -2,6 +2,15 @@ name: Triggered Workflow
 
 env:
   RUNNERS_OPTIONS: -c cookies=enabled
+  jarPath: "C:\\Program Files (x86)\\DBmaestro\\DOP Server\\Agent\\DBmaestroAgent.jar"
+  DBMprojectName: "RNR_PRJ"
+  DBMauthType: "DBmaestroAccount"
+  DBMuserName: "poc@dbmaestro.com"
+  DBMauthToken: "7KI5tL3ywYAZLB8FUY9fzJyekemgtG45"
+  DBMserver: "DOPX-BERKE"
+  DBMVersion: "V1"
+  DBMRSSchema: "demors"
+  PACKAGE: test
 
 on:
   repository_dispatch:
@@ -12,8 +21,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Print Event
         run: echo "This is a triggered event. ${{ github.event.client_payload.input_value }}  ${{ github.event.client_payload.input_value2 }}"
+
+      - name: DBMaestro Task
+        run: java -jar $jarPath -Upgrade -ProjectName $DBMprojectName -EnvName "Release Source" -PackageName $DBMVersion -Server DOPX-BERKE:8020 -AuthType $DBMauthType -UserName $DBMuserName -Password $DBMauthToken
