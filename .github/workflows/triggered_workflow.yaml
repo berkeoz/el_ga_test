@@ -28,4 +28,4 @@ jobs:
         run: echo "This is a triggered event. ${{ github.event.client_payload.input_value }}  ${{ github.event.client_payload.input_value2 }}"
 
       - name: DBMaestro Task
-        run: java -jar ${{ env.jarPath }} -Upgrade -ProjectName ${{ env.DBMprojectName }} -EnvName "Release Source" -PackageName ${{ env.DBMVersion }} -Server DOPX-BERKE:8020 -AuthType ${{ env.DBMauthType }} -UserName ${{ env.DBMuserName }} -Password ${{ env.DBMauthToken }}
+        run: java -jar "${{ env.jarPath }}" -Upgrade -ProjectName ${{ env.DBMprojectName }} -EnvName "Release Source" -PackageName ${{ env.DBMVersion }} -Server DOPX-BERKE:8020 -AuthType ${{ env.DBMauthType }} -UserName ${{ env.DBMuserName }} -Password ${{ env.DBMauthToken }}
